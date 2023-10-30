@@ -1,1 +1,12 @@
 \section{}
+
+\subsection*{Part a)}
+
+There are $N$ days, the list of deadlines on each day is: $d=[d_1,\ d_2,\ \ldots,\ d_N]$, with $d[i]$ deadlines on day $i$.
+
+The given situation is a zero sum game, meaning that any deadlines Xun handles directly takes away from deadlines that Yuntao handles and vice versa, so both students will be attempting to maximize their score which will inherently minimize the other student's score. This type of problem is known as a maximin or minimax problem. In a zero sum game, a maximin and a minimax problem are identical. The minimax problem is formally stated as:
+\[v_x=\max_{a_x}{\min_{a_y}{v_x(a_x,a_y)}}\]
+In this equation, $v_x$ represents the value function of Xun, $a_x$ is the decision made by Xun, and $a_y$ is the decision made by Yuntao. In essence, Xun wants to make a decision that will ensure the maximal value function for herself after Yuntao makes whatever decision minimizes the value for Xun. This becomes a recursion problem as after Xun and Yuntao make one decision each, they are left with the same minimax problem but with a reduced list of deadlines. For example, if Xun and Yuntao both decided to do 1 day of deadlines each, they would be left with a minimax problem on $d=[d_3,\ d_4,\ \ldots,\ d_N]$
+
+To properly evaluate the value function for Xun at any point, the 3D decisions Xun, is able to take must be evaluated, and for each of these decisions, all of Yuntao's decisions must be evaluated, at this point another value function for Xun must be evaluated. Another way to interpret this problem is to recognize that Yuntao's value function follows the same process as Xun's value function, so for the sake of the evaluating runtime, you can view the recursive cycle as: for every value function, evaluate a value function at each of the 3D decisions that can be made. The runtime of making any decision is constant, because of this, the recurrence can be stated as:
+\[T\left(n\right)=\ \sum_{i=1}^{3D}{T(n-i)}+\theta(1)\]
