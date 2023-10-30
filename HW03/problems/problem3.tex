@@ -1,1 +1,40 @@
 \section{}
+\subsection*{Part a}
+\textbf{Expression for Losses:}
+
+To minimize the waiter's losses, we want to minimize the impatience-weighted waiting time for all clients. Let's define the total loss $L$ as the sum of losses for all clients:
+
+\[L = t_1 * o_1 + t_2 * o_2 + t_3 * o_3 + \dots + t_n * o_n\]
+
+where:
+
+$t_i$ is the impatience of the $i$-th client.
+
+$o_i$ is the time taken to take the order from the $i$-th client.
+
+The goal is to minimize $L$.
+
+\textbf{Greedy Algorithm:}
+
+1. Sort the clients based on their impatience, in non-decreasing order (i.e., in ascending order of $t_i$).
+
+2. Take the orders from the clients in this sorted order.
+
+This greedy algorithm sorts the clients by impatience and serves the least impatient clients first.
+
+\subsection*{Part b}
+After making the first greedy choice (sorting by impatience and taking the orders in this order), the problem reduces to a smaller subproblem. In this subproblem, you need to solve the same problem for the remaining clients, excluding the client with the least impatience (as they have already been served). You can apply the same algorithm recursively to solve this subproblem.
+
+\subsection*{Part c}
+To prove the greedy choice property, you need to show that there is an optimal solution that agrees with the first greedy choice your algorithm makes.
+
+Let's assume there exists an optimal solution where you don't serve the least impatient client first. Instead, you serve another client with higher impatience. We can argue that this alternative solution is not better. If you serve a client with higher impatience first, it will increase the loss for that client, which is against the goal of minimizing the total losses. So, the first greedy choice of serving the least impatient client is indeed optimal.
+
+\subsection*{Part d}
+The problem exhibits optimal substructure because the optimal solution to the original problem can be constructed from the optimal solutions to its smaller subproblems. By serving the least impatient client first and solving the subproblem of the remaining clients, you are constructing an optimal solution for the original problem. This is because the greedy algorithm minimizes the losses for the current client, and by recursively applying it, you minimize the losses for the entire set of clients.
+
+In summary, the greedy algorithm sorts clients by impatience and serves them in ascending order of impatience, which minimizes the losses. The problem exhibits the greedy choice property and optimal substructure, making this approach effective and optimal. The runtime of the algorithm is dominated by the sorting step, which is typically O(n log n) for n clients.
+
+
+
+
