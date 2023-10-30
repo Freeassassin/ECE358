@@ -1,1 +1,241 @@
 \section{}
+Keys: 7, 9, 88, 11, 25, 23, 22, 28, 14, 21
+
+\[h_p\left(k\right)=k\mathrm{\ mod\ }11 \]
+
+\[h_s\left(k\right)=3k\mathrm{\ mod\ }4\ \]
+
+We start with an empty table of length 11. The indices of the cells are 0-10 inclusive.
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+     &  &  &  &  &  &  &  &  &  & \\
+    \hline
+\end{tabularx}
+
+The following insertions happen:
+\[k=7,h_p\left(7\right)=7 \]
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+     &  &  &  &  &  &  & 7 &  &  & \\
+    \hline
+\end{tabularx}
+
+\[k=9,h_p\left(9\right)=9 \]
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+     &  &  &  &  &  &  & 7 &  & 9 & \\
+    \hline
+\end{tabularx}
+
+\[k=88,h_p\left(88\right)=0 \]
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+    88 &  &  &  &  &  &  & 7 &  & 9 & \\
+    \hline
+\end{tabularx}
+
+\[k=11,h_p\left(11\right)=0,\ \mathrm{This\ is\ a\ collision,\ index\ 0\ is\ already\ occupied} \]
+\[h_s\left(11\right)=33\mathrm{\ mod\ }4=1,\ \mathrm{so\ probe\ with\ a\ step\ size\ of\ 1} \]
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+    88 & 11 &  &  &  &  &  & 7 &  & 9 & \\
+    \hline
+\end{tabularx}
+
+\[k=25,h_p\left(25\right)=3\]
+
+\begin{tabularx}{\textwidth} {
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X |}
+    \hline
+    88 & 11 &  & 25 &  &  &  & 7 &  & 9 & \\
+    \hline
+\end{tabularx}
+
+
+\[k=23,h_p\left(23\right)=1,\ \mathrm{This\ is\ a\ collision,\ index\ 1\ is\ already\ occupied}\]
+\[h_s\left(23\right)=69\mathrm{\ mod\ }4=1,\ \mathrm{so\ probe\ with\ a\ step\ size\ of\ 1}\]
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 &  &  &  & 7 &  & 9 & \\
+\hline
+\end{tabularx}
+
+
+\[k=22,h_p\left(22\right)=0,\ \mathrm{This\ is\ a\ collision,\ index\ 0\ is\ already\ occupied}\]
+\[h_s\left(22\right)=66\mathrm{\ mod\ }4=2,\ \mathrm{so\ probe\ with\ a\ step\ size\ of\ 2}\]
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 & 22 &  &  & 7 &  & 9 & \\
+\hline
+\end{tabularx}
+
+\[k=28,h_p\left(28\right)=6\]
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 & 22 &  & 28 & 7 &  & 9 & \\
+\hline
+\end{tabularx}
+
+\[k=14,h_p\left(14\right)=3,\ \mathrm{This\ is\ a\ collision,\ index\ 3\ is\ already\ occupied}\]
+\[h_s\left(14\right)=42\mathrm{\ mod\ }4=2,\ \mathrm{so\ probe\ with\ a\ step\ size\ of\ 2}\]
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 & 22 & 14 & 28 & 7 &  & 9 & \\
+\hline
+\end{tabularx}
+
+\[k=21,h_p\left(21\right)=10\]
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 & 22 & 14 & 28 & 7 &  & 9 & 21\\
+\hline
+\end{tabularx}
+
+Therefore, the resulting hash table is:
+
+\begin{tabularx}{\textwidth} {
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X
+    | >{\centering\arraybackslash}X |}
+\hline
+88 & 11 & 23 & 25 & 22 & 14 & 28 & 7 &  & 9 & 21\\
+\hline
+\end{tabularx}
