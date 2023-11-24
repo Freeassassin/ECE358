@@ -1,1 +1,24 @@
 \section{}
+\subsection*{(a)}
+To analyze the SkewedHeapMerge operations at node $x$, we can denote $w(x)$ as the weight and $c(x)$ as the amortized cost.
+
+We will assign each operation a cost, and if the computed cost is lower then it can be stored as credit on nodes and can be used to pay for other operations.
+
+\textbf{Initializing weights:} at first all weights are set to 1.
+
+\textbf{Perform SkewedHeapMerge:} This process is centered around swapping the left and right children along the rightest path of the two heaps.
+
+Therefore, when a node is merged with another node we can update the weights to reflect that. We also set a cost of \$1 for a swap operation. Additionally, we deposit a penalty amount anytime we move a heavy child to a right child position.
+
+The total cost of the SkewedHeapMerge operation is the sum of the actual costs incurred during the swaps.
+
+To prove that the amortized time is $O(\text{log}_2n)$, we need to show that the cost is $O(n\text{log}n)$
+
+\textbf{Analysis on the root to leaf path:}
+
+\subsection*{(b)}
+\textbf{Insert Operation:}
+When we insert a node, we initially set its weight to 1. The insertion process may involve merging subtrees.The amortized cost for the insert operation is \(O(\log_2 n)\) due to the SkewedHeapMerge operation.
+
+\textbf{DeleteMin Operation:}
+Deleting the minimum element involves merging its left and right children. The amortized cost for the delete operation is \(O(\log_2 n)\) due to the SkewedHeapMerge operation.
