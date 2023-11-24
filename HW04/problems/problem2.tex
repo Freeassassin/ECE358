@@ -1,0 +1,8 @@
+\section{}
+Based on the proof in chapter 22.3 of the textbook we know that Dijkstra's algorithm solves the single-source shortest-paths problem on a weighted, directed graph in
+\[O((V + E)\text{lg}V)\]
+With this algorithm we can calculate a $minWeight$ dictionary that will give us the minimum weight required to get from any North American node to the connection node and the minimum weight required to get from any European node to the connection node.
+
+We can then combine those values with the weight of the $v_{E1}$ to get:
+\[query(v_{NA},v_{E}) = minWeight(v_{NA}) + weight(v_{E1}) + minWeight(v_{E})\]
+This operation will compute in $O(1)$ since all the values are pre-computed.

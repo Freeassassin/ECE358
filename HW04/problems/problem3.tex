@@ -1,0 +1,37 @@
+\section{}
+\begin{algorithm}
+    \caption{Currency Exchange}\label{alg:cap}
+    \begin{algorithmic}[1]
+        \Function{ADD-RATE}{FromCurr,ToCurr,Rate,AdjList}
+        \State{AdjList[FromCurr].append( (ToCurr, Rate) )}
+        \State{AdjList[ToCurr].append( (FromCurr, 1/Rate) )}
+        \EndFunction
+        \Function{RATE-SEARCH}{InCurr}
+        \If{InCurr == OutCurr}
+        \State \Return{$1$}
+        \EndIf
+        \For{(PossibleCurr, Rate) in G[InCurr] }
+        \If{PossibleCurr not in visited}
+        \State result = RATE-SEARCH(PossibleCurr)
+        \If{result not null}
+        \State \Return{Rate * result} \Comment{Conversion found}
+        \EndIf
+        \EndIf
+        \EndFor
+        \State \Return{null} \Comment{No conversion found}
+        \EndFunction
+        \Function{FIND-CONVERSION}{FromCurr,ToCurr,Rates}
+        \State{AdjList = \{$\varnothing$\}}
+        \For{(curr1, curr2, rate) in Rates}
+        \State ADD-RATE(curr1, curr2, rate,AdjList)
+        \EndFor
+        \State{visited = [$\varnothing$]}
+        \State conversion = RATE-SEARCH(FromCurr)
+        \If{conversion not null}
+        \State \Return{conversion}
+        \Else
+        \State \Return{"conversion not possible"}
+        \EndIf
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
