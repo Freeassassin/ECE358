@@ -1,0 +1,90 @@
+\section{}
+
+\subsection*{Part a)}
+
+The sum of the weights of the parts of $A$ is the total weight of \(T_{opt}\). This is because every edge in \(T_{opt}\) is part of exactly one \(C_i\) therefore sum of the weights of these parts, \(\sum^{l}_{i=1} w(C_i)\), is the total weight of \(T_{opt}\).
+\[\therefore \sum^{l}_{i=1} w(C_i) = w(T_{opt})\]
+
+\subsection*{Part b)}
+
+The weight of \(C_{max}\) is greater than or equal to the average part weight.
+
+\[\therefore w(C_{max}) \geq \frac{ \sum^{l}_{i=1} w(C_i) }{l}\]
+
+\subsection*{Part c)}
+
+Consider \(P = \frac{A}{C_{max}}\). We want to derive a lower bound for the quantity \(P \leq 2(1 - 1/l) w(T_{opt})\) using the answers to the questions a-b.
+
+Since \(A\) is the total weight of the minimum Steiner tree \(T_{opt}\), and \(C_{max}\) is the weight of the largest part, we can express \(A\) as \(A = \sum^{l}_{i=1} w(C_i) \geq l \cdot w(C_{max})\). Therefore, \(w(C_{max}) \leq \frac{A}{l}\).
+
+Now, we have \(P = \frac{A}{C_{max}} \geq \frac{A}{\frac{A}{l}} = l\). Rearranging, we get \(l \leq P\).
+
+Using the result from Part b, \(w(C_{max}) \leq \frac{A}{l}\), we have \(P \cdot w(C_{max}) \leq A\). Substituting \(P \leq l\) into this inequality, we get \(l \cdot w(C_{max}) \leq A\).
+
+Now, we can use the fact that \(A \geq l \cdot w(C_{max})\) to derive a lower bound for \(P\):
+
+\[P = \frac{A}{C_{max}} \leq \frac{A}{\frac{A}{l}} = l\]
+
+\[P \leq l\]
+
+Consider \(P = \frac{A}{C_{max}}\). Using the results from parts a and b, we can say that \(A = \sum^{l}_{i=1} w(C_i)\) and \(C_{max}\) is the largest among \(C_i\)'s. Therefore, \(P\) is at most twice the average part weight, i.e., \(P \leq 2 \cdot \frac{\sum^{l}_{i=1} w(C_i)}{l}\). Substituting the result from part a, we get \(P \leq 2(1 - 1/l)w(T_{opt})\).
+
+\subsection*{Part d)}
+
+The weight of \(P\) is at least half the weight of \(T_{opt}\).
+\[\therefore \ w(P) \geq \frac{1}{2} w(T_{opt})\]
+
+\subsection*{Part e)}
+
+Consider the graph \(G_4\) obtained in step 5 of the algorithm. In \(G_4\), we iteratively delete all leaves that are not vertices in \(R\). Therefore, the weight of \(G_4\) is less than or equal to the weight of the minimum Steiner tree \(T_{opt}\).
+
+\[w(G_4) \leq w(T_{opt})\]
+
+In the algorithm, \(G_1\) is the complete distance graph, and \(G_2\) is a minimum spanning tree of \(G_1\). This means that the weight of \(G_2\) is at most the weight of any spanning tree of \(G_1\). Therefore, \(w(G_2) \leq w(T_{opt})\).
+
+\subsection*{Part f)}
+
+Now, combine the results from parts c, d, and e:
+
+\[w(P) \geq w(T_{opt}) - \frac{ \sum^{l}_{i=1} w(C_i) }{l} \geq \frac{1}{2} w(T_{opt})\]
+
+Combine this with the result from part e:
+
+\[w(P) \geq \frac{1}{2} w(T_{opt}) \geq \frac{1}{2} w(G_4)\]
+
+Now, the weight of \(G_4\) is related to the weight of \(T_{approx}\) by the factor of 2 (as mentioned in the algorithm):
+
+\[w(T_{approx}) \leq 2 w(G_4)\]
+
+Combining the above inequalities:
+
+\[w(T_{approx}) \leq 2 w(G_4) \leq 4 w(P)\]
+
+Now, substitute the bound for \(P\) from part c:
+
+\[w(T_{approx}) \leq 4 w(P) \leq 4 \left( w(T_{opt}) - \frac{ \sum^{l}_{i=1} w(C_i) }{l} \right)\]
+
+Simplify the expression:
+
+\[w(T_{approx}) \leq 4 w(T_{opt}) - 4 \cdot \frac{ \sum^{l}_{i=1} w(C_i) }{l}\]
+
+Divide by 2:
+
+\[w(T_{approx}) \leq 2 w(T_{opt}) - 2 \cdot \frac{ \sum^{l}_{i=1} w(C_i) }{l}\]
+
+Now, notice that \(\sum^{l}_{i=1} w(C_i) = w(T_{opt})\):
+
+\[w(T_{approx}) \leq 2 w(T_{opt}) - 2 \cdot \frac{w(T_{opt})}{l}\]
+
+Factor out \(w(T_{opt})\):
+
+\[w(T_{approx}) \leq 2(1 - \frac{1}{l}) w(T_{opt})\]
+
+This completes the proof:
+
+\[w(T_{approx}) \leq 2(1 - \frac{1}{l}) w(T_{opt})\]
+
+Combining the results from parts c, d, and e, we have:
+\[ w(T_{opt}) \leq w(G_2) \leq w(P) \leq 2(1 - 1/l)w(T_{opt}) \]
+
+This completes the proof. We have shown that \(w(T_{opt}) \leq 2(1 - 1/l)w(T_{opt})\), which is the statement to be proven.

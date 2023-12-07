@@ -1,0 +1,26 @@
+\section{}
+
+\subsection*{Part a)}
+
+The certificate is the graph $G=(V,E)$ with at least $k$ edges that is a subgraph of both $G_1$ and $G_2$.
+
+To verify that this is a valid solution, iterate over every vertex and edge in $G$ to check if the vertex/edge belongs to both $G_1$ and $G_2$. Additionally, while performing this operation, sum the number of edges in $G$ to verify that there are at least $k$ edges.
+
+Using a linear search, each vertex can be verified in $O\left(\left|V_1+V_2\right|\right)$ time, similarly, each edge can be verified in $O\left(\left|E_1+E_2\right|\right)$ time. There are $O\left(\left|V\right|\right)$ vertices, and $O\left(\left|E\right|\right)$ edges, putting this all together, the runtime can be computed to be:
+\begin{eqnarray}
+    O\left(\left|V\right|\right)\ast O\left(\left|V_1+V_2\right|\right)+O\left(\left|E\right|\right)\ast O\left(\left|E_1+E_2\right|\right) \\
+    =O(\left|V\right|\left|V_1+V_2\right|+\left|E\right|\left|E_1+E_2\right|)
+\end{eqnarray}
+Therefore, a given solution can be verified in polynomial time, meaning that $B \in NP$.
+
+\subsection*{Part b)}
+
+Let the input to problem $A$ be $G'$. The output is true if $G'$ contains a clique of size $k$. Let $G_1$ be a complete graph of with $k'$ vertices such that $k\prime\le n$, and $G^\prime=G_2$ be any graph with n vertices, where $G_1$  and $G_2$ are the inputs to problem $B$, additionally stipulate that the minimum number of edges for $B$ is $k=\binom{k\prime}{2}$. Pass $G_2$ as the input to $A$, if $A$ returns true, it means that there exists a clique of size $k$ in $G_2$.
+
+Creating the graph $G_1$ takes $O\left(V+E\right)$ time. $O\left(E\right)=O(V^2)$ because the graph is fully connected. Therefore, this operation takes $O\left(V+V^2\right)=O\left(V^2\right)$ time, which is polynomial time.
+
+A clique of size $k'$ is a complete graph with $k=\frac{k\prime(k\prime-1)}{2}=\binom{k\prime}{2}$ edges, meaning that if $A$ returns true, $G_1$  must be a subgraph of $G_2$ and $B$ returns true as well. 
+
+With the described inputs, if $B$ returns true, it means that $G_2$ must have a subgraph that is a complete graph with $k=\frac{k\prime(k\prime-1)}{2}=\binom{k\prime}{2}$ edges which is the same as a clique of size $k'$, meaning that $A$ will also return true.
+
+Therefore, $A \leq{} \prescript{}{p}{B} $, meaning that $B$ is $NP-hard$. Because $B \in NP$, and $B$ is $NP-hard$, $B$ is $NP-complete$.

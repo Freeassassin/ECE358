@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{titlesec}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[final]{pdfpages}
+\usepackage{mathtools}
+
+% Customization -------
+
+% Paper size, margin
+\usepackage[letterpaper,top=1.5cm,bottom=1.5cm,left=1.75cm,right=1.75cm,heightrounded]{geometry}
+
+% line height
+\renewcommand{\baselinestretch}{1.15} % line space
+
+% Paragraph indentation 
+\setlength{\parindent}{0pt} % no indent
+
+% Paragraph spacing
+\setlength{\parskip}{0.8em} % space between paragraphs
+
+% Section number formatting
+\titleformat{\section}[hang]{\bfseries}{Problem \thesection\ }{0pt}{}
+
+
+% Equation numbering per section
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+% Graphics path
+\graphicspath{ {./images/} }
+
+% --------------------
+
+\title{ECE385: Homework 04}
+\author{Farbod Mohammadzadeh\\
+    (1008360462)\\
+    Connor Ludwig\\
+    (1008333028)\\}
+\date{06 Decemberr 2023\\ \pageref{LastPage} Pages}
+\begin{document}
+\large
+\maketitle
+\newpage
+\input{problems/problem1.tex}
+\newpage
+\input{problems/problem2.tex}
+\newpage
+\input{problems/problem3.tex}
+
+\end{document}

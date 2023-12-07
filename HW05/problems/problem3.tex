@@ -1,0 +1,27 @@
+\section{}
+\subsection*{Part a)}
+The certificate is the collection of numbered items $C={w_j,\ v_j}\subseteq S$ such that $\sum_{j} w_{j\in C}\le W$ and $\sum_{j} v_{j\in C}\geq V$.
+
+To verify this is a valid solution, iterate over all $j$ to compute the sum of all $w_j$ and the sum of all $v_j$, then compare these sums to the values $W$ and $V$ respectively to determine if the solution is valid.
+
+This operation iterates through a list of items a singular time, meaning the operation takes linear time. The number of items in the list is upper bound by the total number of items in the set $S$, which is $n$. Giving a runtime of $O(n)$.
+
+Therefore, a given solution can be verified in polynomial time, meaning that $B \in NP$.
+
+\subsection*{Part b)}
+
+Reduce a to b if $x$ answers a, $f(x)$ answers b.
+
+Let the set $S={a_1,a_2,\ldots,a_n}$ be the input passed to problem A. The output is true if $\sum_{i} a_{i\in C}=k$ for some $C\subseteq S$. Let $w_i=v_i=a_i\ \forall i\in n$ be the inputs to problem B. Additionally, stipulate that $W=V=k$.
+
+This operation is a linear operation through the set of items, meaning that it can be done in O(n) time, which is polynomial time.
+
+If $A$ returns true, it means that there exists a set $C$ such that $\sum_{i} a_{i\in C}=k$, letting problem $B$ take the same inputs as $A$, the following result is also obtained 
+
+\[\sum_{i} a_{i\in C}=\sum_{i}{w_{i\in C}=W=k=V=\sum_{i} v_{i\in C}}\]
+
+Because equality still satisfies the condition of problem $B$, this means that if $A$ returns true, $B$ must also return true.
+
+If $B$ returns true, it requires that $\sum_{i}{w_{i\in C}\le W,\ \sum_{i} v_{i\in C}}\geq V$, because $W$ and $V$ are equal to each other and $k$, this can be stated as $\sum_{i} v_{i\in C}\le k\le\sum_{i} w_{i\in C}$. We also know that, $\sum_{i} a_{i\in C}=\sum_{i} v_{i\in C}=\sum_{i} w_{i\in C}$, substituting in these value, the following statement is obtained, $\sum_{i} a_{i\in C}\le k\le\sum_{i} a_{i\in C}$, this tightly bounds $k$, yielding the result $\sum_{i} a_{i\in C}=k$. Therefore, if $B$ returns true, $A$ must also return true.
+
+Therefore, $A \leq{} \prescript{}{p}{B}$, meaning that $B$ is $NP-hard$. Because $B \in NP$, and $B$ is $NP-hard$, $B$ is $NP-complete$.
